@@ -4,10 +4,10 @@ let d, c;
 let classList = ['visible', 'close', 'far', 'far', 'distant', 'distant'];
 let use24HourClock = true;
 
-const toggleButton = document.getElementById("toggleSeconds");
+const toggleSeconds = document.getElementById("toggleSeconds");
 const seconds = document.getElementById("seconds");
 
-toggleButton.addEventListener("click", () => {
+toggleSeconds.addEventListener("click", () => {
   if (seconds.style.display === "none") {
     seconds.style.display = "inline";
   } else {
@@ -78,6 +78,18 @@ function getClass(n, i2) {
   return classList.find((class_, classIndex) => Math.abs(n - i2) === classIndex) || '';
 }
 
+getCurrentTimezoneByIp()
+  .then((timezone) => {
+    c = getClock(timezone);
+    columns.forEach((ele, i) => {
+      let n = +c[i];
+      let offset = -n * size;
+      ele.style.transform = `translateY(calc(50vh + ${offset}px - ${size / 2}px))`;
+      Array.from(ele.children).forEach((ele2, i2) => {
+        ele2.className = 'num ' + getClass(n, i2);
+      });
+    });
+  });
 
 let loop = setInterval(() => {
   getCurrentTimezoneByIp()
@@ -93,4 +105,6 @@ let loop = setInterval(() => {
       });
     });
 
-}, 200 + Math.E * 10); // 55 * 1000 for every 55 seconds
+}, 2 * 1000);
+// 200 + Math.E * 10 for microseconds
+
