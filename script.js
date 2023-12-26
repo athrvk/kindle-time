@@ -2,7 +2,27 @@ let size = 86;
 let columns = Array.from(document.getElementsByClassName('column'));
 let d, c;
 let classList = ['visible', 'close', 'far', 'far', 'distant', 'distant'];
-let use24HourClock = false;
+let use24HourClock = true;
+
+const toggleButton = document.getElementById("toggleSeconds");
+const seconds = document.getElementById("seconds");
+
+toggleButton.addEventListener("click", () => {
+  if (seconds.style.display === "none") {
+    seconds.style.display = "inline";
+  } else {
+    seconds.style.display = "none";
+  }
+});
+
+const rotateButton = document.getElementById("rotate");
+const clock = document.getElementById("clock");
+let rotation = 0;
+
+rotateButton.addEventListener("click", () => {
+  rotation += 90; // Increment rotation by 90 degrees
+  clock.style.transform = `rotate(${rotation}deg)`;
+});
 
 function padClock(p, n) {
   return p + ('0' + n).slice(-2);
@@ -73,4 +93,4 @@ let loop = setInterval(() => {
       });
     });
 
-}, 200 + Math.E * 10);
+}, 200 + Math.E * 10); // 55 * 1000 for every 55 seconds
