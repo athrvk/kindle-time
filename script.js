@@ -9,7 +9,8 @@ function padClock(p, n) {
 }
 
 function getClock() {
-  d = new Date(Date());
+  const currentTimeStamp = Date.now();
+  d = new Date(currentTimeStamp);
   return [
   use24HourClock ? d.getHours() : d.getHours() % 12 || 12,
   d.getMinutes(),
