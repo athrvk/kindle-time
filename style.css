@@ -10,6 +10,34 @@ body {
   overflow: hidden;
 }
 
+#clock {
+  position: relative;
+  padding: auto;
+}
+
+
+#toggleSeconds {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-decoration: underline;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  pointer-events: all;
+}
+
+#rotate {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-decoration: underline;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  pointer-events: all;
+}
+
 .column,
 .colon {
   display: inline-block;
