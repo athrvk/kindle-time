@@ -16,6 +16,16 @@ body {
   padding: auto;
 }
 
+#toggle12h {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-decoration: underline;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  pointer-events: all;
+}
 
 #toggleSeconds {
   position: absolute;

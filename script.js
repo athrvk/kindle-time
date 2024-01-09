@@ -24,6 +24,13 @@ rotateButton.addEventListener("click", () => {
   clock.style.transform = `rotate(${rotation}deg)`;
 });
 
+const toggle12h24h = document.getElementById("toggle12h");
+toggle12h24h.addEventListener("click", () => {
+  use24HourClock = !use24HourClock;
+  //change the 12h text of the button to bold if its 12h or change the 24h text of the button to bold if its 24h
+  toggle12h24h.innerHTML = use24HourClock ? "Toggle 24h" : "Toggle 12h";
+})
+
 function padClock(p, n) {
   return p + ('0' + n).slice(-2);
 }
@@ -63,7 +70,7 @@ function changeTimezone(date, ianatz) {
 }
 
 
-function getClock(timezone) {
+function getClock(timezone, use24HourClock) {
   d = new Date();
   d = changeTimezone(d, timezone)
   return [
@@ -80,7 +87,7 @@ function getClass(n, i2) {
 
 getCurrentTimezoneByIp()
   .then((timezone) => {
-    c = getClock(timezone);
+    c = getClock(timezone, use24HourClock);
     columns.forEach((ele, i) => {
       let n = +c[i];
       let offset = -n * size;
@@ -94,7 +101,7 @@ getCurrentTimezoneByIp()
 let loop = setInterval(() => {
   getCurrentTimezoneByIp()
     .then((timezone) => {
-      c = getClock(timezone);
+      c = getClock(timezone, use24HourClock);
       columns.forEach((ele, i) => {
         let n = +c[i];
         let offset = -n * size;
