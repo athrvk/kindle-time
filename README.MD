@@ -15,7 +15,7 @@ Visit [Kindle Time](https://athrvk.github.io/kindle-time/)
 
 ### Prerequisites
 
-Ensure your Kindle device has access to a web browser and can connect to the internet.
+Ensure your Kindle device has access to a web browser and can connect to the internet and its browser supports javascript.
 
 
 ### Usage
