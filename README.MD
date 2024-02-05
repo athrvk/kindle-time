@@ -38,4 +38,4 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## Acknowledgments
 
-- Inspired by the desire to repurpose Kindle devices for practical uses.
+- Inspired by the desire to repurpose Kindle devices for not so practical uses.
